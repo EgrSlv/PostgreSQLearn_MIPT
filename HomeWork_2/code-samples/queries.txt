@@ -1,0 +1,12 @@
+# Дедубликация
+'''
+    CREATE TABLE product_cor AS SELECT * FROM (
+        SELECT *, row_number() OVER(
+                PARTITION BY product_id
+                ORDER BY list_price desc
+        ) AS rn
+        FROM product
+    )
+    where rn = 1
+''';
+
