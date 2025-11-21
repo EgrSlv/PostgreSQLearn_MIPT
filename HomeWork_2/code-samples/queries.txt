@@ -1,12 +1,17 @@
 # Дедубликация
 '''
-    CREATE TABLE product_cor AS SELECT * FROM (
-        SELECT *, row_number() OVER(
-                PARTITION BY product_id
-                ORDER BY list_price desc
-        ) AS rn
+    CREATE TABLE product_cor AS SELECT product_id
+                                      ,brand
+                                      ,product_line
+                                      ,product_class
+                                      ,product_size
+                                      ,list_price
+                                      ,standard_cost
+	FROM (
+        SELECT *
+              ,row_number() over(partition by product_id ORDER BY list_price desc) AS rn
         FROM product
-    )
-    where rn = 1
+    ) AS rm where rn = 1
+
 ''';
 
