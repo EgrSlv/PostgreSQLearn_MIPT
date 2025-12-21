@@ -1,0 +1,24 @@
+[2025-12-21 20:09:21,318] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: SolovevEgor_HW_05_ds_2025.run_query1 manual__2025-12-21T20:09:17.493064+00:00 [queued]>
+[2025-12-21 20:09:21,332] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: SolovevEgor_HW_05_ds_2025.run_query1 manual__2025-12-21T20:09:17.493064+00:00 [queued]>
+[2025-12-21 20:09:21,333] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 20:09:21,333] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2025-12-21 20:09:21,333] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 20:09:21,346] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): run_query1> on 2025-12-21 20:09:17.493064+00:00
+[2025-12-21 20:09:21,355] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'SolovevEgor_HW_05_ds_2025', 'run_query1', 'manual__2025-12-21T20:09:17.493064+00:00', '--job-id', '3485', '--raw', '--subdir', 'DAGS_FOLDER/SolovevEgor_HW_06_ds_2025.py', '--cfg-path', '/tmp/tmpkqcigjeu', '--error-file', '/tmp/tmpvp9pgitf']
+[2025-12-21 20:09:21,356] {standard_task_runner.py:77} INFO - Job 3485: Subtask run_query1
+[2025-12-21 20:09:21,351] {standard_task_runner.py:52} INFO - Started process 647 to run task
+[2025-12-21 20:09:21,417] {logging_mixin.py:109} INFO - Running <TaskInstance: SolovevEgor_HW_05_ds_2025.run_query1 manual__2025-12-21T20:09:17.493064+00:00 [running]> on host 6bc1d04857cc
+[2025-12-21 20:09:21,471] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Solovev Egor
+AIRFLOW_CTX_DAG_ID=SolovevEgor_HW_05_ds_2025
+AIRFLOW_CTX_TASK_ID=run_query1
+AIRFLOW_CTX_EXECUTION_DATE=2025-12-21T20:09:17.493064+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-12-21T20:09:17.493064+00:00
+[2025-12-21 20:09:21,472] {logging_mixin.py:109} INFO - Выполняется запрос query5.sql в 20251221_200921
+[2025-12-21 20:09:21,837] {base.py:79} INFO - Using connection to: id: postgresql. Host: postgres, Port: 5432, Schema: postgres, Login: ***, Password: ***, extra: {}
+[2025-12-21 20:09:21,885] {python.py:175} INFO - Done. Returned value was: 0
+[2025-12-21 20:09:21,914] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=SolovevEgor_HW_05_ds_2025, task_id=run_query1, execution_date=20251221T200917, start_date=20251221T200921, end_date=20251221T200921
+[2025-12-21 20:09:21,978] {local_task_job.py:154} INFO - Task exited with return code 0
+[2025-12-21 20:09:22,042] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

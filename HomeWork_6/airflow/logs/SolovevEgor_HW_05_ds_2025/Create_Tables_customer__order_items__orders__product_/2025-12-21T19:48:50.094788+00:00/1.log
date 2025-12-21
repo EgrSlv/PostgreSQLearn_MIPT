@@ -1,0 +1,76 @@
+[2025-12-21 19:49:06,198] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: SolovevEgor_HW_05_ds_2025.Create_Tables_customer__order_items__orders__product_ scheduled__2025-12-21T19:48:50.094788+00:00 [queued]>
+[2025-12-21 19:49:06,207] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: SolovevEgor_HW_05_ds_2025.Create_Tables_customer__order_items__orders__product_ scheduled__2025-12-21T19:48:50.094788+00:00 [queued]>
+[2025-12-21 19:49:06,208] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 19:49:06,208] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2025-12-21 19:49:06,208] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 19:49:06,217] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): Create_Tables_customer__order_items__orders__product_> on 2025-12-21 19:48:50.094788+00:00
+[2025-12-21 19:49:06,226] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'SolovevEgor_HW_05_ds_2025', 'Create_Tables_customer__order_items__orders__product_', 'scheduled__2025-12-21T19:48:50.094788+00:00', '--job-id', '3084', '--raw', '--subdir', 'DAGS_FOLDER/SolovevEgor_HW_06_ds_2025.py', '--cfg-path', '/tmp/tmpf0ns_6na', '--error-file', '/tmp/tmp3w7ymz4w']
+[2025-12-21 19:49:06,227] {standard_task_runner.py:77} INFO - Job 3084: Subtask Create_Tables_customer__order_items__orders__product_
+[2025-12-21 19:49:06,222] {standard_task_runner.py:52} INFO - Started process 135 to run task
+[2025-12-21 19:49:06,283] {logging_mixin.py:109} INFO - Running <TaskInstance: SolovevEgor_HW_05_ds_2025.Create_Tables_customer__order_items__orders__product_ scheduled__2025-12-21T19:48:50.094788+00:00 [running]> on host f4f0113aed8c
+[2025-12-21 19:49:06,333] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Solovev Egor
+AIRFLOW_CTX_DAG_ID=SolovevEgor_HW_05_ds_2025
+AIRFLOW_CTX_TASK_ID=Create_Tables_customer__order_items__orders__product_
+AIRFLOW_CTX_EXECUTION_DATE=2025-12-21T19:48:50.094788+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2025-12-21T19:48:50.094788+00:00
+[2025-12-21 19:49:06,342] {base.py:79} INFO - Using connection to: id: postgresql. Host: postgres, Port: 5432, Schema: postgres, Login: ***, Password: ***, extra: {}
+[2025-12-21 19:49:06,347] {dbapi.py:225} INFO - Running statement: 
+                create table if not exists customer (
+                    customer_id INT4 primary key
+                    ,first_name VARCHAR(128) not null
+                    ,last_name VARCHAR(128)
+                    ,gender VARCHAR(128) not null
+                    ,DOB DATE
+                    ,job_title VARCHAR(128)
+                    ,job_industry_category VARCHAR(128)
+                    ,wealth_segment VARCHAR(128) not null
+                    ,deceased_indicator VARCHAR(128) not null
+                    ,owns_car VARCHAR(128) not null
+                    ,address VARCHAR(128) not null
+                    ,postcode VARCHAR(128) not null
+                    ,state VARCHAR(128) not null
+                    ,country VARCHAR(128) not null
+                    ,property_valuation INT2 not null
+                );
+
+                create table if not exists order_items (
+                    order_item_id INT4 primary key
+                    ,order_id INT4 not null
+                    ,product_id INT4 not null
+                    ,quantity NUMERIC not null
+                    ,item_list_price_at_sale FLOAT4 not null
+                    ,item_standard_cost_at_sale FLOAT4
+                );
+
+                create table if not exists orders (
+                    order_id INT4 primary key
+                    ,customer_id INT4 not null
+                    ,order_date DATE not null
+                    ,online_order TEXT
+                    ,order_status VARCHAR(128) not null
+                );
+
+                create table if not exists product (
+                    product_id INT4 not null
+                    ,brand VARCHAR(128)
+                    ,product_line VARCHAR(128)
+                    ,product_class VARCHAR(128)
+                    ,product_size VARCHAR(128)
+                    ,list_price FLOAT4 not null
+                    ,standard_cost FLOAT4
+                );
+            , parameters: None
+[2025-12-21 19:49:06,348] {postgres.py:71} INFO - NOTICE:  relation "customer" already exists, skipping
+
+[2025-12-21 19:49:06,348] {postgres.py:71} INFO - NOTICE:  relation "order_items" already exists, skipping
+
+[2025-12-21 19:49:06,348] {postgres.py:71} INFO - NOTICE:  relation "orders" already exists, skipping
+
+[2025-12-21 19:49:06,348] {postgres.py:71} INFO - NOTICE:  relation "product" already exists, skipping
+
+[2025-12-21 19:49:06,359] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=SolovevEgor_HW_05_ds_2025, task_id=Create_Tables_customer__order_items__orders__product_, execution_date=20251221T194850, start_date=20251221T194906, end_date=20251221T194906
+[2025-12-21 19:49:06,403] {local_task_job.py:154} INFO - Task exited with return code 0
+[2025-12-21 19:49:06,439] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

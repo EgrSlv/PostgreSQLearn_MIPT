@@ -1,0 +1,27 @@
+[2025-12-21 15:25:49,862] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: HomeWork6.fill_table__customer manual__2025-12-21T15:25:45.293040+00:00 [queued]>
+[2025-12-21 15:25:49,880] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: HomeWork6.fill_table__customer manual__2025-12-21T15:25:45.293040+00:00 [queued]>
+[2025-12-21 15:25:49,880] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 15:25:49,880] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2025-12-21 15:25:49,881] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 15:25:49,908] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): fill_table__customer> on 2025-12-21 15:25:45.293040+00:00
+[2025-12-21 15:25:49,915] {standard_task_runner.py:52} INFO - Started process 940 to run task
+[2025-12-21 15:25:49,921] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'HomeWork6', 'fill_table__customer', 'manual__2025-12-21T15:25:45.293040+00:00', '--job-id', '57', '--raw', '--subdir', 'DAGS_FOLDER/HomeWork6.py', '--cfg-path', '/tmp/tmp4sajz0v2', '--error-file', '/tmp/tmp16k4uv9q']
+[2025-12-21 15:25:49,923] {standard_task_runner.py:77} INFO - Job 57: Subtask fill_table__customer
+[2025-12-21 15:25:50,010] {logging_mixin.py:109} INFO - Running <TaskInstance: HomeWork6.fill_table__customer manual__2025-12-21T15:25:45.293040+00:00 [running]> on host ee9896260e3b
+[2025-12-21 15:25:50,098] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Solovev Egor
+AIRFLOW_CTX_DAG_ID=HomeWork6
+AIRFLOW_CTX_TASK_ID=fill_table__customer
+AIRFLOW_CTX_EXECUTION_DATE=2025-12-21T15:25:45.293040+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-12-21T15:25:45.293040+00:00
+[2025-12-21 15:25:50,113] {base.py:79} INFO - Using connection to: id: postgresql. Host: postgres, Port: 5432, Schema: postgres, Login: ***, Password: ***, extra: {}
+[2025-12-21 15:25:50,120] {dbapi.py:225} INFO - Running statement: 
+                COPY customer FROM '/opt/***/data_files/customer.csv'
+                DELIMITER ';' CSV HEADER;
+        , parameters: None
+[2025-12-21 15:25:50,161] {dbapi.py:233} INFO - Rows affected: 4000
+[2025-12-21 15:25:50,190] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=HomeWork6, task_id=fill_table__customer, execution_date=20251221T152545, start_date=20251221T152549, end_date=20251221T152550
+[2025-12-21 15:25:50,215] {local_task_job.py:154} INFO - Task exited with return code 0
+[2025-12-21 15:25:50,268] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

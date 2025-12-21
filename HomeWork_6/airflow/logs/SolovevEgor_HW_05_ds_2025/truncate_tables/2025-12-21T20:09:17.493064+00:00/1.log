@@ -1,0 +1,23 @@
+[2025-12-21 20:09:19,013] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: SolovevEgor_HW_05_ds_2025.truncate_tables manual__2025-12-21T20:09:17.493064+00:00 [queued]>
+[2025-12-21 20:09:19,020] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: SolovevEgor_HW_05_ds_2025.truncate_tables manual__2025-12-21T20:09:17.493064+00:00 [queued]>
+[2025-12-21 20:09:19,021] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 20:09:19,021] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2025-12-21 20:09:19,021] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 20:09:19,028] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): truncate_tables> on 2025-12-21 20:09:17.493064+00:00
+[2025-12-21 20:09:19,035] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'SolovevEgor_HW_05_ds_2025', 'truncate_tables', 'manual__2025-12-21T20:09:17.493064+00:00', '--job-id', '3479', '--raw', '--subdir', 'DAGS_FOLDER/SolovevEgor_HW_06_ds_2025.py', '--cfg-path', '/tmp/tmpsdqd_emf', '--error-file', '/tmp/tmpe7n102r_']
+[2025-12-21 20:09:19,035] {standard_task_runner.py:77} INFO - Job 3479: Subtask truncate_tables
+[2025-12-21 20:09:19,032] {standard_task_runner.py:52} INFO - Started process 625 to run task
+[2025-12-21 20:09:19,084] {logging_mixin.py:109} INFO - Running <TaskInstance: SolovevEgor_HW_05_ds_2025.truncate_tables manual__2025-12-21T20:09:17.493064+00:00 [running]> on host 6bc1d04857cc
+[2025-12-21 20:09:19,126] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Solovev Egor
+AIRFLOW_CTX_DAG_ID=SolovevEgor_HW_05_ds_2025
+AIRFLOW_CTX_TASK_ID=truncate_tables
+AIRFLOW_CTX_EXECUTION_DATE=2025-12-21T20:09:17.493064+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-12-21T20:09:17.493064+00:00
+[2025-12-21 20:09:19,134] {base.py:79} INFO - Using connection to: id: postgresql. Host: postgres, Port: 5432, Schema: postgres, Login: ***, Password: ***, extra: {}
+[2025-12-21 20:09:19,138] {dbapi.py:225} INFO - Running statement: truncate table customer, order_items, orders, product;, parameters: None
+[2025-12-21 20:09:19,163] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=SolovevEgor_HW_05_ds_2025, task_id=truncate_tables, execution_date=20251221T200917, start_date=20251221T200919, end_date=20251221T200919
+[2025-12-21 20:09:19,212] {local_task_job.py:154} INFO - Task exited with return code 0
+[2025-12-21 20:09:19,255] {local_task_job.py:264} INFO - 4 downstream tasks scheduled from follow-on schedule check

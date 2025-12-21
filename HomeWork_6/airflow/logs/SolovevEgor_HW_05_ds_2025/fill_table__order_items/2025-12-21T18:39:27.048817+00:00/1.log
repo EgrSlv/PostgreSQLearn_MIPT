@@ -1,0 +1,27 @@
+[2025-12-21 18:39:51,719] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: SolovevEgor_HW_05_ds_2025.fill_table__order_items scheduled__2025-12-21T18:39:27.048817+00:00 [queued]>
+[2025-12-21 18:39:51,789] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: SolovevEgor_HW_05_ds_2025.fill_table__order_items scheduled__2025-12-21T18:39:27.048817+00:00 [queued]>
+[2025-12-21 18:39:51,790] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 18:39:51,790] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2025-12-21 18:39:51,790] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 18:39:51,838] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): fill_table__order_items> on 2025-12-21 18:39:27.048817+00:00
+[2025-12-21 18:39:51,852] {standard_task_runner.py:52} INFO - Started process 8221 to run task
+[2025-12-21 18:39:51,864] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'SolovevEgor_HW_05_ds_2025', 'fill_table__order_items', 'scheduled__2025-12-21T18:39:27.048817+00:00', '--job-id', '993', '--raw', '--subdir', 'DAGS_FOLDER/SolovevEgor_HW_06_ds_2025.py', '--cfg-path', '/tmp/tmp3n2uttfz', '--error-file', '/tmp/tmp7ym1ss5w']
+[2025-12-21 18:39:51,869] {standard_task_runner.py:77} INFO - Job 993: Subtask fill_table__order_items
+[2025-12-21 18:39:52,088] {logging_mixin.py:109} INFO - Running <TaskInstance: SolovevEgor_HW_05_ds_2025.fill_table__order_items scheduled__2025-12-21T18:39:27.048817+00:00 [running]> on host b97b26732d6a
+[2025-12-21 18:39:52,314] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Solovev Egor
+AIRFLOW_CTX_DAG_ID=SolovevEgor_HW_05_ds_2025
+AIRFLOW_CTX_TASK_ID=fill_table__order_items
+AIRFLOW_CTX_EXECUTION_DATE=2025-12-21T18:39:27.048817+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2025-12-21T18:39:27.048817+00:00
+[2025-12-21 18:39:52,339] {base.py:79} INFO - Using connection to: id: postgresql. Host: postgres, Port: 5432, Schema: postgres, Login: ***, Password: ***, extra: {}
+[2025-12-21 18:39:52,352] {dbapi.py:225} INFO - Running statement: 
+                COPY order_items FROM '/opt/***/data_files/order_items.csv'
+                DELIMITER ',' CSV HEADER;
+        , parameters: None
+[2025-12-21 18:39:52,570] {dbapi.py:233} INFO - Rows affected: 20000
+[2025-12-21 18:39:52,633] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=SolovevEgor_HW_05_ds_2025, task_id=fill_table__order_items, execution_date=20251221T183927, start_date=20251221T183951, end_date=20251221T183952
+[2025-12-21 18:39:52,717] {local_task_job.py:154} INFO - Task exited with return code 0
+[2025-12-21 18:39:52,937] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

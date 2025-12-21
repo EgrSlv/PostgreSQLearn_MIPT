@@ -1,0 +1,61 @@
+[2025-12-21 18:13:17,202] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: SolovevEgor_HW_05_ds_2025.run_query2 scheduled__2025-12-21T18:12:57.291768+00:00 [queued]>
+[2025-12-21 18:13:17,215] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: SolovevEgor_HW_05_ds_2025.run_query2 scheduled__2025-12-21T18:12:57.291768+00:00 [queued]>
+[2025-12-21 18:13:17,215] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 18:13:17,215] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2025-12-21 18:13:17,215] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 18:13:17,225] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): run_query2> on 2025-12-21 18:12:57.291768+00:00
+[2025-12-21 18:13:17,232] {standard_task_runner.py:52} INFO - Started process 6100 to run task
+[2025-12-21 18:13:17,236] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'SolovevEgor_HW_05_ds_2025', 'run_query2', 'scheduled__2025-12-21T18:12:57.291768+00:00', '--job-id', '449', '--raw', '--subdir', 'DAGS_FOLDER/SolovevEgor_HW_06_ds_2025.py', '--cfg-path', '/tmp/tmp7_svwnvp', '--error-file', '/tmp/tmpq9runfgk']
+[2025-12-21 18:13:17,237] {standard_task_runner.py:77} INFO - Job 449: Subtask run_query2
+[2025-12-21 18:13:17,299] {logging_mixin.py:109} INFO - Running <TaskInstance: SolovevEgor_HW_05_ds_2025.run_query2 scheduled__2025-12-21T18:12:57.291768+00:00 [running]> on host b97b26732d6a
+[2025-12-21 18:13:17,350] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Solovev Egor
+AIRFLOW_CTX_DAG_ID=SolovevEgor_HW_05_ds_2025
+AIRFLOW_CTX_TASK_ID=run_query2
+AIRFLOW_CTX_EXECUTION_DATE=2025-12-21T18:12:57.291768+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2025-12-21T18:12:57.291768+00:00
+[2025-12-21 18:13:17,358] {base.py:79} INFO - Using connection to: id: postgresql. Host: postgres, Port: 5432, Schema: postgres, Login: ***, Password: ***, extra: {}
+[2025-12-21 18:13:17,363] {dbapi.py:225} INFO - Running statement: /* Query 8
+ * 
+ * 8. Найти топ-5 клиентов (по общему доходу) в каждом сегменте благосостояния
+      (wealth_segment). Вывести имя, фамилию, сегмент и общий доход.
+      Если в сегменте менее 5 клиентов, вывести всех.
+*/
+
+with transaction_amount_per_customer as (
+	select
+		o.customer_id,
+		trunc(coalesce(sum(oi.quantity * oi.item_list_price_at_sale), 0)::numeric, 2) as amount
+	from
+		orders as o
+	join order_items as oi on
+		oi.order_id = o.order_id
+	group by
+		o.customer_id
+)
+select
+	*
+from
+	(
+	select
+		c.first_name,
+		coalesce(c.last_name, 'n\a') as last_name,
+		c.wealth_segment,
+		coalesce(t.amount, 0) as amount,
+		row_number() over(partition by wealth_segment order by amount desc) as rn
+	from
+		customer c
+	left join transaction_amount_per_customer as t on
+		t.customer_id = c.customer_id
+	where
+		amount > 0
+) as ranks
+where
+	rn <= 5
+;, parameters: None
+[2025-12-21 18:13:17,409] {dbapi.py:233} INFO - Rows affected: 15
+[2025-12-21 18:13:17,420] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=SolovevEgor_HW_05_ds_2025, task_id=run_query2, execution_date=20251221T181257, start_date=20251221T181317, end_date=20251221T181317
+[2025-12-21 18:13:17,449] {local_task_job.py:154} INFO - Task exited with return code 0
+[2025-12-21 18:13:17,476] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
