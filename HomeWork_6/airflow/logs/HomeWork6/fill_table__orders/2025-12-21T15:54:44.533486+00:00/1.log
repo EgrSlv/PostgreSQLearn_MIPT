@@ -1,0 +1,2 @@
+[2025-12-21 15:54:46,334] {taskinstance.py:1026} INFO - Dependencies not met for <TaskInstance: HomeWork6.fill_table__orders manual__2025-12-21T15:54:44.533486+00:00 [queued]>, dependency 'Trigger Rule' FAILED: Task's trigger rule 'all_success' requires all upstream tasks to have succeeded, but found 1 non-success(es). upstream_tasks_state={'total': 1, 'successes': 0, 'skipped': 0, 'failed': 0, 'upstream_failed': 0, 'done': 0}, upstream_task_ids={'truncate_tables'}
+[2025-12-21 15:54:46,336] {local_task_job.py:99} INFO - Task is not able to be run

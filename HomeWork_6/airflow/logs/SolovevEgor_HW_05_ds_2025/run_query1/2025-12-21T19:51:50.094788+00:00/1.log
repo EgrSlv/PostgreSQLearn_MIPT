@@ -1,0 +1,78 @@
+[2025-12-21 19:52:11,314] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: SolovevEgor_HW_05_ds_2025.run_query1 scheduled__2025-12-21T19:51:50.094788+00:00 [queued]>
+[2025-12-21 19:52:11,325] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: SolovevEgor_HW_05_ds_2025.run_query1 scheduled__2025-12-21T19:51:50.094788+00:00 [queued]>
+[2025-12-21 19:52:11,325] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 19:52:11,325] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2025-12-21 19:52:11,325] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 19:52:11,334] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): run_query1> on 2025-12-21 19:51:50.094788+00:00
+[2025-12-21 19:52:11,342] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'SolovevEgor_HW_05_ds_2025', 'run_query1', 'scheduled__2025-12-21T19:51:50.094788+00:00', '--job-id', '3189', '--raw', '--subdir', 'DAGS_FOLDER/SolovevEgor_HW_06_ds_2025.py', '--cfg-path', '/tmp/tmp7y_06131', '--error-file', '/tmp/tmpzv5vvsp4']
+[2025-12-21 19:52:11,343] {standard_task_runner.py:77} INFO - Job 3189: Subtask run_query1
+[2025-12-21 19:52:11,339] {standard_task_runner.py:52} INFO - Started process 485 to run task
+[2025-12-21 19:52:11,402] {logging_mixin.py:109} INFO - Running <TaskInstance: SolovevEgor_HW_05_ds_2025.run_query1 scheduled__2025-12-21T19:51:50.094788+00:00 [running]> on host f4f0113aed8c
+[2025-12-21 19:52:11,453] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Solovev Egor
+AIRFLOW_CTX_DAG_ID=SolovevEgor_HW_05_ds_2025
+AIRFLOW_CTX_TASK_ID=run_query1
+AIRFLOW_CTX_EXECUTION_DATE=2025-12-21T19:51:50.094788+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2025-12-21T19:51:50.094788+00:00
+[2025-12-21 19:52:11,720] {base.py:79} INFO - Using connection to: id: postgresql. Host: postgres, Port: 5432, Schema: postgres, Login: ***, Password: ***, extra: {}
+[2025-12-21 19:52:11,770] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 174, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 185, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/SolovevEgor_HW_06_ds_2025.py", line 19, in get_sql_query
+    encoding="UTF-8")
+  File "/home/airflow/.local/lib/python3.6/site-packages/pandas/core/generic.py", line 3170, in to_csv
+    formatter.save()
+  File "/home/airflow/.local/lib/python3.6/site-packages/pandas/io/formats/csvs.py", line 190, in save
+    compression=dict(self.compression_args, method=self.compression),
+  File "/home/airflow/.local/lib/python3.6/site-packages/pandas/io/common.py", line 493, in get_handle
+    f = open(path_or_buf, mode, encoding=encoding, errors=errors, newline="")
+PermissionError: [Errno 13] Permission denied: '/opt/airflow/SQL_scripts/20251221_195211_query5.csv'
+[2025-12-21 19:52:11,784] {taskinstance.py:1277} INFO - Marking task as UP_FOR_RETRY. dag_id=SolovevEgor_HW_05_ds_2025, task_id=run_query1, execution_date=20251221T195150, start_date=20251221T195211, end_date=20251221T195211
+[2025-12-21 19:52:11,794] {standard_task_runner.py:92} ERROR - Failed to execute job 3189 for task run_query1
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 174, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.6/site-packages/airflow/operators/python.py", line 185, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/SolovevEgor_HW_06_ds_2025.py", line 19, in get_sql_query
+    encoding="UTF-8")
+  File "/home/airflow/.local/lib/python3.6/site-packages/pandas/core/generic.py", line 3170, in to_csv
+    formatter.save()
+  File "/home/airflow/.local/lib/python3.6/site-packages/pandas/io/formats/csvs.py", line 190, in save
+    compression=dict(self.compression_args, method=self.compression),
+  File "/home/airflow/.local/lib/python3.6/site-packages/pandas/io/common.py", line 493, in get_handle
+    f = open(path_or_buf, mode, encoding=encoding, errors=errors, newline="")
+PermissionError: [Errno 13] Permission denied: '/opt/airflow/SQL_scripts/20251221_195211_query5.csv'
+[2025-12-21 19:52:11,842] {local_task_job.py:154} INFO - Task exited with return code 1
+[2025-12-21 19:52:11,870] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check

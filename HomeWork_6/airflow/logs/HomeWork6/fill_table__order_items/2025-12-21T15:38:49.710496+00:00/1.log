@@ -1,0 +1,27 @@
+[2025-12-21 15:38:58,473] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: HomeWork6.fill_table__order_items manual__2025-12-21T15:38:49.710496+00:00 [queued]>
+[2025-12-21 15:38:58,494] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: HomeWork6.fill_table__order_items manual__2025-12-21T15:38:49.710496+00:00 [queued]>
+[2025-12-21 15:38:58,495] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 15:38:58,495] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2025-12-21 15:38:58,495] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2025-12-21 15:38:58,517] {taskinstance.py:1259} INFO - Executing <Task(PostgresOperator): fill_table__order_items> on 2025-12-21 15:38:49.710496+00:00
+[2025-12-21 15:38:58,525] {standard_task_runner.py:52} INFO - Started process 1486 to run task
+[2025-12-21 15:38:58,532] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'HomeWork6', 'fill_table__order_items', 'manual__2025-12-21T15:38:49.710496+00:00', '--job-id', '77', '--raw', '--subdir', 'DAGS_FOLDER/HomeWork6.py', '--cfg-path', '/tmp/tmp9l3mmjm6', '--error-file', '/tmp/tmpqe0nrhd0']
+[2025-12-21 15:38:58,533] {standard_task_runner.py:77} INFO - Job 77: Subtask fill_table__order_items
+[2025-12-21 15:38:58,630] {logging_mixin.py:109} INFO - Running <TaskInstance: HomeWork6.fill_table__order_items manual__2025-12-21T15:38:49.710496+00:00 [running]> on host ee9896260e3b
+[2025-12-21 15:38:58,717] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Solovev Egor
+AIRFLOW_CTX_DAG_ID=HomeWork6
+AIRFLOW_CTX_TASK_ID=fill_table__order_items
+AIRFLOW_CTX_EXECUTION_DATE=2025-12-21T15:38:49.710496+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2025-12-21T15:38:49.710496+00:00
+[2025-12-21 15:38:58,732] {base.py:79} INFO - Using connection to: id: postgresql. Host: postgres, Port: 5432, Schema: postgres, Login: ***, Password: ***, extra: {}
+[2025-12-21 15:38:58,740] {dbapi.py:225} INFO - Running statement: 
+                COPY order_items FROM '/opt/***/data_files/order_items.csv'
+                DELIMITER ',' CSV HEADER;
+        , parameters: None
+[2025-12-21 15:38:58,809] {dbapi.py:233} INFO - Rows affected: 20000
+[2025-12-21 15:38:58,833] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=HomeWork6, task_id=fill_table__order_items, execution_date=20251221T153849, start_date=20251221T153858, end_date=20251221T153858
+[2025-12-21 15:38:58,866] {local_task_job.py:154} INFO - Task exited with return code 0
+[2025-12-21 15:38:58,922] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check
